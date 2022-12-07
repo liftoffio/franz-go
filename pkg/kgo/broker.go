@@ -16,9 +16,10 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/twmb/franz-go/pkg/kmsg"
+
 	"github.com/twmb/franz-go/pkg/kbin"
 	"github.com/twmb/franz-go/pkg/kerr"
-	"github.com/twmb/franz-go/pkg/kmsg"
 	"github.com/twmb/franz-go/pkg/sasl"
 )
 
@@ -474,7 +475,7 @@ type bufPool struct{ p *sync.Pool }
 
 func newBufPool() bufPool {
 	return bufPool{
-		p: &sync.Pool{New: func() interface{} { r := make([]byte, 1<<10); return &r }},
+		p: &sync.Pool{New: func() interface{} { r := make([]byte, 1e5); return &r }},
 	}
 }
 
