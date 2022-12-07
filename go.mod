@@ -1,4 +1,4 @@
-module github.com/twmb/franz-go
+module github.com/liftoffio/franz-go
 
 go 1.15
 
